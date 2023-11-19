@@ -1,5 +1,5 @@
-import Sequelize from 'sequilize';
-import db from '../repositories/db.js';
+import Sequelize from 'sequelize';
+import db from "../repositories/db.js";
 
 const Client = db.define('clients', {
     clientId: {
@@ -29,5 +29,13 @@ const Client = db.define('clients', {
         allowNull: false,
     }
 });
+
+// db.sync()
+//   .then(() => {
+//     console.log('Tabelas criadas com sucesso!');
+//   })
+//   .catch((err) => {
+//     console.error('Erro ao criar tabelas:', err);
+//   });
 
 export default Client;

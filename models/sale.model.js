@@ -1,5 +1,5 @@
-import Sequelize from 'sequilize';
-import db from '../repositories/db.js';
+import Sequelize from 'sequelize';
+import db from "../repositories/db.js";
 import Book from './book.model.js';
 import Client from './client.model.js';
 

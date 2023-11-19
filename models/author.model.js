@@ -1,5 +1,5 @@
-import Sequelize from 'sequilize';
-import db from '../repositories/db.js';
+import Sequelize from 'sequelize';
+import db from "../repositories/db.js";
 
 const Author = db.define('authors', {
     authorId: {
