@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import winston from 'winston';
 import clientsRouter from './routes/client.route.js';
+import authorRouter from './routes/author.route.js';
+import bookRouter from './routes/book.route.js';
+import saleRouter from './routes/sale.route.js';
 
 const { combine, timestamp, label, printf } = winston.format;
 const winstonFormat = printf(({ level, message, label, timestamp }) => {
@@ -25,6 +28,9 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/client', clientsRouter);
+app.use('/author', authorRouter);
+app.use('/book', bookRouter);
+app.use('/sale', saleRouter);
 
 app.use((err, req, res, next) => {
     logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);

@@ -25,6 +25,9 @@ const Book = db.define('books', {
         type: Sequelize.INTEGER,
         allowNull: false
     }
+},
+{
+    underscored: true
 });
 
 Book.belongsTo(Author, { foreignKey: "authorId" });

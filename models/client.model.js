@@ -28,6 +28,9 @@ const Client = db.define('clients', {
         type: Sequelize.STRING,
         allowNull: false,
     }
+},
+{
+    underscored: true
 });
 
 // db.sync()

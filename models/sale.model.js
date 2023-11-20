@@ -15,7 +15,7 @@ const Sale = db.define('sales', {
         allowNull: false
     },
     date: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false
     },
     clientId: {
@@ -26,6 +26,9 @@ const Sale = db.define('sales', {
         type: Sequelize.INTEGER,
         allowNull: false
     }
+},
+{
+    underscored: true
 });
 
 Sale.belongsTo(Client, { foreignKey: "clientId" });

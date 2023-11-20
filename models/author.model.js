@@ -20,6 +20,9 @@ const Author = db.define('authors', {
         type: Sequelize.STRING,
         allowNull: false
     }
+},
+{
+    underscored: true
 });
 
 export default Author;
