@@ -1,4 +1,5 @@
 import bookRepository from '../repositories/book.repository.js';
+import saleRepository from '../repositories/sale.repository.js';
 
 async function createBook(book) {
     return await bookRepository.insertBook(book);
@@ -9,6 +10,12 @@ async function updateBook(book) {
 }
 
 async function deleteBook(book_id) {
+    const sale = saleRepository.getSaleByBook(client_id);
+
+    if(sale.length > 0) {
+        throw new Error('Existe vendas para esse cliente, não é possível excluir.');
+    }
+
     await bookRepository.deleteBook(book_id);
 }
 

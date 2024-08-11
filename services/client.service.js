@@ -1,4 +1,5 @@
 import clientRepository from '../repositories/client.repository.js';
+import saleRepository from '../repositories/sale.repository.js';
 
 async function createClient(client) {
     return await clientRepository.insertClient(client);
@@ -9,6 +10,12 @@ async function updateClient(client) {
 }
 
 async function deleteClient(client_id) {
+    const sale = saleRepository.getSaleByClient(client_id);
+
+    if(sale.length > 0) {
+        throw new Error('Existe vendas para esse cliente, não é possível excluir.');
+    }
+
     await clientRepository.deleteClient(client_id);
 }
 
